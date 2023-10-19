@@ -1,4 +1,6 @@
-class DebugEmpty:
+from DebugOutputInterface import DebugOutputInterface
+
+class DebugEmpty(DebugOutputInterface):
 
     def __init__(self):
         self._output = []

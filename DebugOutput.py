@@ -1,6 +1,7 @@
+from DebugOutputInterface import DebugOutputInterface
 import os
 
-class DebugOutput:
+class DebugOutput(DebugOutputInterface):
 
     def __init__(self):
         self._output = []

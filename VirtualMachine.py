@@ -1,5 +1,4 @@
 from CodelHandlerInterface import CodelHandlerInterface
-from stack import Stack
 
 class VirtualMachine(CodelHandlerInterface):
     def __init__(self, debug):

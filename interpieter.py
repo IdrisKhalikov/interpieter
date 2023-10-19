@@ -1,4 +1,3 @@
-from PythonTranslator import PythonTranslator
 from VirtualMachine import VirtualMachine
 from Interpreter import Interpreter
 from ImgToPiet import get_program
@@ -11,8 +10,7 @@ import os
 def main(*args, **kwargs):
     args = get_args()
     run_program(args['path'], args['codel_size'], args['d'])
-    print('\n')
-    print('Program ended')
+    print('\nProgram ended')
 
 def run_program(path, codel_size, debug=False):
     program = get_program(get_path(path), codel_size)

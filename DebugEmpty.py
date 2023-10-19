@@ -1,5 +1,3 @@
-import os
-
 class DebugEmpty:
 
     def __init__(self):

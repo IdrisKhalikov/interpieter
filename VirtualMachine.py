@@ -89,7 +89,8 @@ class VirtualMachine(CodelHandlerInterface):
         try:
             self._stack.append(int(self.read_value()))
         except ValueError:
-            print('Entered value was not a number')
+            self._output('Entered value was not a number')
+            self._finished = True
 
     def _out_number(self, value):
         if self._stack.count() < 1:
@@ -100,7 +101,8 @@ class VirtualMachine(CodelHandlerInterface):
         try:
             self._stack.append(ord(self.read_value()))
         except TypeError:
-            print('Entered value was not a character')
+            self._output('Entered value was not a character')
+            self._finished = True
 
     def _out_char(self, value):
         if self._stack.count() < 1:

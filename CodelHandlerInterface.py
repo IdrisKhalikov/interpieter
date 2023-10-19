@@ -69,7 +69,6 @@ class CodelHandlerInterface:
         if first_color == WHITE_COLOR or second_color == WHITE_COLOR:
             return True
         self._invoke_command(first_color, second_color, value)
-        # print(self._func_table[brightness_offset * 6 + hue_offset].__name__, value)
         return True
 
     def _invoke_command(self, first_color, second_color, value):

@@ -1,11 +1,8 @@
-from CodelHandlerInterface import CodelHandlerInterface
-from VirtualMachine import VirtualMachine
-from ProgramSource import ProgramSource
 from Pointer import Pointer
 
 class Interpreter:
 
-    def run(self, source : ProgramSource, codel_handler_class, debugger):
+    def run(self, source, codel_handler_class, debugger):
         iterator = source
         previous_codel = iterator.get_color_block(Pointer(0,0))
         with codel_handler_class(debugger) as codel_handler:

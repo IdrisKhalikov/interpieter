@@ -17,26 +17,26 @@ class CodelHandlerInterface:
         self._direction = Pointer(1, 0)
         self._codel_chooser = Pointer(0, -1)
         self._retry_counter = 0
-        self._func_table = {
-            self._none_func: 'None',
-            self._add: 'Add',
-            self._divide: 'Divide',
-            self._greater: 'Greater',
-            self._duplicate: 'Duplicate',
-            self._in_char: 'In character',
-            self._push: 'Push',
-            self._substract: 'Substract',
-            self._mod: 'Mod',
-            self._pointer: 'Pointer',
-            self._roll: 'Roll',
-            self._out_number: 'Out number',
-            self._pop: 'Pop',
-            self._multiply: 'Multiply',
-            self._not: 'Not',
-            self._switch: 'Switch',
-            self._in_number: 'In number',
-            self._out_char: 'Output character'
-        }
+        self._func_table = [
+            (self._none_func, 'None'),
+            (self._add, 'Add'),
+            (self._divide, 'Divide'),
+            (self._greater, 'Greater'),
+            (self._duplicate, 'Duplicate'),
+            (self._in_char, 'In character'),
+            (self._push, 'Push'),
+            (self._substract, 'Substract'),
+            (self._mod, 'Mod'),
+            (self._pointer, 'Pointer'),
+            (self._roll, 'Roll'),
+            (self._out_number, 'Out number'),
+            (self._pop, 'Pop'),
+            (self._multiply, 'Multiply'),
+            (self._not, 'Not'),
+            (self._switch, 'Switch'),
+            (self._in_number, 'In number'),
+            (self._out_char, 'Output character')
+        ]
 
         self._finished = False
         self._stack = Stack()
@@ -76,9 +76,7 @@ class CodelHandlerInterface:
         second_codel = COLOR_MAP[second_color]
         brightness_offset = (second_codel[0] - first_codel[0]) % 3
         hue_offset = (second_codel[1] - first_codel[1]) % 6
-        func = list(self._func_table.keys())[
-            brightness_offset * 6 + hue_offset]
-        name = self._func_table[func]
+        func, name = self._func_table[brightness_offset * 6 + hue_offset]
         self._debug.update(self._stack, self.get_pointer(),
                            self.get_codel_chooser(), hue_offset, brightness_offset, name)
         func(value)
